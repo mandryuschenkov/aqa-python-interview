@@ -27,7 +27,7 @@ def resource_c(resource_a, request):
     logger.debug(10)
 
 
-class TestFinalizers:
+class TestFixtureFinalizers:
 
     def test_one(self, resource_c):
         logger.debug(11)
