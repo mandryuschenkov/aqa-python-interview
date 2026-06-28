@@ -15,12 +15,49 @@
 Вопросы и задания охватывают современный стек Python-автоматизации:
 
 **✅ Уже реализовано:**
-* **Pytest** (фикстуры, маркеры, хуки, параметризация, плагины)
-* **Pydantic** (валидация данных, схемы)
-* **Playwright** (UI-автоматизация, паттерны Page Object, ожидания)
+
+### Pytest (9 заданий)
+| # | Задание | Блок | Уровень |
+|---|---------|------|---------|
+| 1 | Финализаторы в фикстурах | `pytest-base/fixtures/finalizer/` | 🔴 Senior |
+| 2 | Мутабельность фикстур и утечка состояния | `pytest-base/fixtures/mutability/` | 🟡 Middle |
+| 3 | Порядок выполнения фикстур | `pytest-base/fixtures/ordering/` | 🔴 Senior |
+| 4 | Встроенные маркеры (skip, skipif, xfail) | `pytest-base/markers/builtin/` | 🟡 Middle |
+| 5 | Маркировка конкретных параметров (`pytest.param`) | `pytest-base/markers/params/` | 🟡 Middle |
+| 6 | Динамическая параметризация и `pytest_generate_tests` | `pytest-base/parametrization/dynamic/` | 🟡 Middle |
+| 7 | Базовая параметризация (код-ревью) | `pytest-base/parametrization/elements/` | 🟡 Middle |
+| 8 | Оценка базовых навыков написания тестов | `pytest-base/test-elements/` | 🔵 Junior |
+| 9 | Продвинутая параметризация фикстур | `pytest-advanced/parametrization/` | 🔴 Senior |
+
+### Pydantic (3 задания)
+| # | Задание | Блок | Уровень |
+|---|---------|------|---------|
+| 10 | ClassVar в Pydantic BaseModel | `pydantic-base/classvar/` | 🟡 Middle |
+| 11 | Полиморфизм и объединение классов | `pydantic-base/polymorphism/` | 🔴 Senior |
+| 12 | Валидация данных, Literal, вложенные модели | `pydantic-base/validation/` | 🟡 Middle |
+
+### Playwright (6 заданий)
+| # | Задание | Блок | Уровень |
+|---|---------|------|---------|
+| 13 | fill vs type: ввод текста | `playwright-base/actions/fill-vs-type/` | 🟡 Middle |
+| 14 | Паттерн Page Object в Playwright | `playwright-base/architecture/page-objects/` | 🟡 Middle |
+| 15 | Изоляция тестов и переиспользование состояния | `playwright-base/fixtures/lifecycle/` | 🟡 Middle |
+| 16 | Сложные XPath и CSS селекторы | `playwright-base/locators/complex-selectors/` | 🟡 Middle |
+| 17 | Ленивые локаторы и перерисовка DOM | `playwright-base/locators/lazy-evaluation/` | 🟡 Middle |
+| 18 | Приоритет локаторов и семантический поиск | `playwright-base/locators/semantic-locators/` | 🟡 Middle |
+
+### Pytest-xdist (1 задание)
+| # | Задание | Блок | Уровень |
+|---|---------|------|---------|
+| 19 | Параллельное выполнение и разделяемые ресурсы | `pytest-advanced/xdist/shared_state/` | 🔴 Senior |
+
+### Requests (2 задания)
+| # | Задание | Блок | Уровень |
+|---|---------|------|---------|
+| 20 | Пул соединений (requests.Session vs requests.get) | `requests-base/session/connection-pooling/` | 🟡 Middle |
+| 21 | Слияние параметров сессии | `requests-base/session/global-settings/` | 🔴 Senior |
 
 **🕒 В планах (будет добавлено позже):**
-* **Requests / HTTP** (REST API, сессии, моки)
 * **GitLab CI** (пайплайны, джобы, артефакты)
 * **Docker** (контейнеризация тестов, docker-compose)
 * **Allure Framework** (репортинг, интеграция)
@@ -89,12 +126,15 @@
 2. **Развернутое объяснение по второму вопросу...**
 
 ### Навыки:
-Что конкретно проверяет эта задача. Какие навыки и уровень глубины знаний мы здесь оцениваем.
+Что конкретно проверяет эта задача. Какие навыки и уровень глубины мы здесь оцениваем.
 ```
 
 Уровни в блоке вопросов обозначаются цветными маркерами: 🔵 Junior, 🟡 Middle, 🔴 Senior
 
-### 4. Чего стоит избегать при составлении
+### 4. Обновление README.md
+**Каждое новое задание должно быть добавлено в таблицу соответствующего раздела в `README.md`.** Указывайте номер задания, название, путь к директории и уровень сложности.
+
+### 5. Чего стоит избегать при составлении
 * **Тривиальных вопросов.** Не нужно спрашивать "Зачем нужен assert?".
 * **Громоздкого кода.** Кандидат должен суметь прочитать и осознать код с экрана за 1-2 минуты.
 * **"Синтаксического" снобизма.** Вопрос должен проверять логику и архитектуру, а не знание того, в какой версии Python появился конкретный метод у строки.
