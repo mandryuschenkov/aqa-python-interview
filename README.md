@@ -57,10 +57,10 @@
 | 20 | Пул соединений (requests.Session vs requests.get) | `requests-base/session/connection-pooling/` | 🟡 Middle |
 | 21 | Слияние параметров сессии | `requests-base/session/global-settings/` | 🔴 Senior |
 
-**🕒 В планах (будет добавлено позже):**
-* **GitLab CI** (пайплайны, джобы, артефакты)
-* **Docker** (контейнеризация тестов, docker-compose)
-* **Allure Framework** (репортинг, интеграция)
+### GitLab CI (1 задание)
+| # | Задание | Блок | Уровень |
+|---|---------|------|---------|
+| 22 | Конфигурация пайплайна автотестов (.gitlab-ci.yml) | `gitlab-ci/pipeline-config/` | 🟡 Middle |
 
 ---
 

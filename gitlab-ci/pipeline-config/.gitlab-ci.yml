@@ -1,0 +1,54 @@
+image: "mcr.microsoft.com/playwright/python:v1.60.0-noble"
+
+stages:
+  - Test
+
+variables:
+  ENV_NAME:
+    value: DEV
+    description: "Выберите окружение"
+  COMMAND:
+    value: pytest --testit --reruns 2 tests
+    description: "Команда запуска pytest"
+  TZ: Europe/Moscow
+
+test:
+  stage: Test
+  before_script:
+    - |
+      eval ENV_FILE=\$"${ENV_NAME}"
+      if [ -f "$ENV_FILE" ]; then
+        grep -v '^#' "$ENV_FILE" > .env
+      else
+        echo "Файл $ENV_FILE не найден"
+        exit 1
+      fi
+      source .env
+      pip install -r requirements.txt
+      python env_setup.py
+  script:
+    - |
+      source .env
+      export TMS_TEST_RUN_NAME="Autotests WEB UI $(date -d "$CI_JOB_STARTED_AT" '+%d-%m-%Y %H:%M:%S')"
+      $COMMAND
+  after_script:
+    - |
+      source .env
+      python tg_report.py
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+      when: always
+    - when: manual
+  artifacts:
+    when: always
+    paths:
+      - logs
+      - test-results
+      - screenshots
+    expire_in: 1 week
+  tags:
+    - autotests-web-ui
